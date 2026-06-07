@@ -5,17 +5,18 @@ import { Lock } from "lucide-react";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Hunain Haider" },
+      { title: "SaaS MVP Development Projects & Portfolio | WebGaebel" },
       {
         name: "description",
         content:
-          "Case studies of complex applications engineered for scale across fintech, healthcare, and logistics.",
+          "Browse case studies and software projects by Hunain Haider. High-performance custom web app development, SaaS MVP development services, and corporate website design solutions.",
       },
-      { property: "og:title", content: "Projects — Hunain Haider" },
-      { property: "og:description", content: "Case studies of complex applications engineered for scale." },
-      { property: "og:url", content: "/projects" },
+      { name: "keywords", content: "SaaS MVP development service, custom web app development, corporate website design agency, fintech dashboard, healthcare compliance CRM, Hunain Haider portfolio" },
+      { property: "og:title", content: "SaaS MVP Development Projects & Portfolio | WebGaebel" },
+      { property: "og:description", content: "Browse case studies and software projects by Hunain Haider. High-performance custom web app development, SaaS MVP development services, and corporate website design solutions." },
+      { property: "og:url", content: "https://webgaebel.com/projects" },
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: "https://webgaebel.com/projects" }],
   }),
   component: Projects,
 });

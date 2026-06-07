@@ -106,6 +106,38 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": "https://webgaebel.com/#person",
+              "name": "Hunain Haider",
+              "jobTitle": "Senior Full Stack Developer & SaaS Builder",
+              "url": "https://webgaebel.com/",
+              "image": "https://webgaebel.com/profile.jpg",
+              "sameAs": [
+                "https://www.linkedin.com/in/hunain-haider-658956257/",
+                "https://x.com/SynapseStack"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://webgaebel.com/#website",
+              "url": "https://webgaebel.com/",
+              "name": "WebGaebel",
+              "description": "Premium SaaS engineering, custom web design, Shopify development, and digital marketing automation services by Hunain Haider.",
+              "publisher": {
+                "@id": "https://webgaebel.com/#person"
+              }
+            }
+          ]
+        })
+      }
+    ]
   }),
 
   shellComponent: RootShell,

@@ -27,20 +27,21 @@ import {
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Hunain Haider" },
+      { title: "Shopify Store Development Agency & Web Design Services" },
       {
         name: "description",
         content:
-          "Filter premium engineering services by industry: SaaS, e-commerce, real estate, healthcare, education, agencies, logistics, and more.",
+          "Explore services by WebGaebel & Hunain Haider. High-performance Shopify store development, affordable website design for small businesses, web design agency services for startups, technical SEO audits, and WhatsApp automation.",
       },
-      { property: "og:title", content: "Services — Hunain Haider" },
+      { name: "keywords", content: "Shopify store development agency, affordable website design for small business, web design agency for startups, seo services for newly launched website, technical seo audit service, whatsapp marketing automation, WebGaebel" },
+      { property: "og:title", content: "Shopify Store Development Agency & Web Design Services" },
       {
         property: "og:description",
-        content: "Enterprise-grade services filtered by your industry.",
+        content: "Explore services by WebGaebel & Hunain Haider. High-performance Shopify store development, affordable website design for small businesses, web design agency services for startups, technical SEO audits, and WhatsApp automation.",
       },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: "https://webgaebel.com/services" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://webgaebel.com/services" }],
   }),
   component: Services,
 });
@@ -88,9 +89,9 @@ const SERVICES: Service[] = [
   },
   {
     icon: Globe,
-    title: "Web Development",
+    title: "Web Design & Development",
     description:
-      "Corporate websites, product sites, and landing pages built for credibility and conversion.",
+      "Affordable website design for small business and custom web design agency for startups built for credibility and conversion.",
     features: [
       "Responsive, accessible layouts",
       "SEO-ready architecture",
@@ -102,9 +103,9 @@ const SERVICES: Service[] = [
   },
   {
     icon: ShoppingBag,
-    title: "Shopify Development",
+    title: "Shopify Store Development Agency",
     description:
-      "Custom Shopify stores built for premium design and conversion optimization.",
+      "Hire Shopify developer for small business. Custom storefront design and custom theme development service built for conversion optimization.",
     features: [
       "Custom storefront design",
       "Product setup & catalog",
@@ -161,8 +162,9 @@ const SERVICES: Service[] = [
   },
   {
     icon: Search,
-    title: "SEO Services",
-    description: "Google ranking and organic traffic optimization.",
+    title: "SEO Services & Audits",
+    description:
+      "SEO services for newly launched website and technical SEO audit service for businesses looking to rank on Google without backlinks.",
     features: ["On-page SEO", "Technical SEO", "Keyword strategy"],
     bestFor: "Long-term organic growth.",
     niches: ["Agencies", "E-Commerce", "Education", "Real Estate", "Personal Brands"],
@@ -192,8 +194,9 @@ const SERVICES: Service[] = [
   },
   {
     icon: Cpu,
-    title: "AI Development",
-    description: "Automation and AI-powered systems for modern teams.",
+    title: "WhatsApp Marketing & AI Automation",
+    description:
+      "WhatsApp marketing automation for business, workflow automation, lead pipelines, and AI system integrations for modern teams.",
     features: ["Workflow automation", "Lead pipelines", "AI integrations"],
     bestFor: "Modern automated businesses.",
     niches: ["SaaS Businesses", "Startups", "Agencies", "Healthcare", "Logistics"],

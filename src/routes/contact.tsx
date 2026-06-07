@@ -5,21 +5,21 @@ import { Mail, Phone, Linkedin, ArrowLeft, Check } from "lucide-react";
 import { XIcon } from "@/components/icons/XIcon";
 import { toast } from "sonner";
 import { createContactSubmission } from "@/lib/api/booking.functions";
-
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Hunain Haider" },
+      { title: "Contact WebGaebel | Hire Shopify Developer & SaaS Consultant" },
       {
         name: "description",
         content:
-          "Send a message or book a meeting with Hunain Haider. Discovery calls, project consultations, and SaaS strategy sessions.",
+          "Get in touch with Hunain Haider, Founder of WebGaebel. Contact us to hire a Shopify developer, schedule a technical SEO audit, or book a SaaS strategy session.",
       },
-      { property: "og:title", content: "Contact — Hunain Haider" },
-      { property: "og:description", content: "Get in touch or schedule a meeting." },
-      { property: "og:url", content: "/contact" },
+      { name: "keywords", content: "hire shopify developer for small business, contact WebGaebel, contact Hunain Haider, book saas strategy session, get technical seo audit" },
+      { property: "og:title", content: "Contact WebGaebel | Hire Shopify Developer & SaaS Consultant" },
+      { property: "og:description", content: "Get in touch with Hunain Haider, Founder of WebGaebel. Contact us to hire a Shopify developer, schedule a technical SEO audit, or book a SaaS strategy session." },
+      { property: "og:url", content: "https://webgaebel.com/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://webgaebel.com/contact" }],
   }),
   component: Contact,
 });

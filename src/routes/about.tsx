@@ -33,20 +33,21 @@ import {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Hunain Haider — Senior Full Stack Developer" },
+      { title: "About Hunain Haider | Senior Full Stack Developer & SaaS Builder" },
       {
         name: "description",
         content:
-          "Senior Full Stack Developer, .NET Developer, MERN Stack Developer, SaaS Builder & Software Solutions Consultant based in Karachi, Pakistan.",
+          "Hunain Haider is a Senior Full Stack Developer, .NET/MERN specialist, and Founder of WebGaebel in Karachi, Pakistan. Helping businesses scale with custom software, SaaS MVP development, and automation.",
       },
-      { property: "og:title", content: "About Hunain Haider — Senior Full Stack Developer" },
+      { name: "keywords", content: "About Hunain Haider, Senior Full Stack Developer, SaaS Builder, .NET Developer, MERN Stack Developer, WebGaebel Founder, Karachi Pakistan developer, Software Solutions Consultant" },
+      { property: "og:title", content: "About Hunain Haider | Senior Full Stack Developer & SaaS Builder" },
       {
         property: "og:description",
-        content: "I Help Businesses Save Time, Get More Clients & Run Smoother Operations Through Custom Software.",
+        content: "Hunain Haider is a Senior Full Stack Developer, .NET/MERN specialist, and Founder of WebGaebel in Karachi, Pakistan. Helping businesses scale with custom software, SaaS MVP development, and automation.",
       },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://webgaebel.com/about" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://webgaebel.com/about" }],
   }),
   component: About,
 });
@@ -186,7 +187,7 @@ function About() {
                 <div className="h-40 w-full relative">
                   <img
                     src="/cover.png"
-                    alt="Hero Cover"
+                    alt="Hunain Haider SaaS Developer Cover"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/35" />
@@ -203,7 +204,7 @@ function About() {
                       <div className="h-28 w-28 overflow-hidden rounded-full border-4 border-card bg-muted shadow-lg">
                         <img
                           src="/profile.jpg"
-                          alt="Hunain Haider"
+                          alt="Hunain Haider - Senior Full Stack Developer & SaaS Architect"
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
@@ -489,7 +490,7 @@ function About() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="h-10 w-10 overflow-hidden rounded-full bg-muted border border-border flex-none">
-                      <img src="/profile.jpg" alt="Hunain Haider" className="h-full w-full object-cover" />
+                      <img src="/profile.jpg" alt="Hunain Haider Profile" className="h-full w-full object-cover" />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-foreground">Hunain Haider</h4>

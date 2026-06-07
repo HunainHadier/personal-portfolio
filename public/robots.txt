@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webgaebel.com/sitemap.xml

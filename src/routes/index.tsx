@@ -6,17 +6,18 @@ import { useBooking } from "@/components/booking/BookingContext";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hunain Haider — Engineering SaaS platforms that scale" },
+      { title: "Hunain Haider | Senior Full Stack Developer & Shopify Store Development Agency" },
       {
         name: "description",
         content:
-          "Senior software engineer partnering with founders and CTOs to architect, build, and scale world-class SaaS platforms.",
+          "Partner with Hunain Haider, Founder of WebGaebel. Specialist in SaaS MVP development services, custom Shopify store development, web design for startups, B2B lead generation, and technical SEO audits.",
       },
-      { property: "og:title", content: "Hunain Haider — Engineering SaaS platforms that scale" },
-      { property: "og:description", content: "World-class SaaS engineering for ambitious teams." },
-      { property: "og:url", content: "/" },
+      { name: "keywords", content: "Hunain Haider, Senior Full Stack Developer, SaaS MVP development service, Shopify store development agency, web design agency for startups, affordable website design for small business, technical SEO audit service, WebGaebel, Karachi Pakistan developer" },
+      { property: "og:title", content: "Hunain Haider | Senior Full Stack Developer & Shopify Store Development Agency" },
+      { property: "og:description", content: "Partner with Hunain Haider, Founder of WebGaebel. Specialist in SaaS MVP development services, custom Shopify store development, web design for startups, B2B lead generation, and technical SEO audits." },
+      { property: "og:url", content: "https://webgaebel.com/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://webgaebel.com/" }],
   }),
   component: Index,
 });
@@ -45,15 +46,13 @@ function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
-          Accepting new enterprise clients
+          Accepting new enterprise & startup clients
         </div>
-        <h1 className="text-[42px] font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[88px]">
-          Engineering <span className="text-primary">SaaS platforms</span>{" "}
-          that scale.
+        <h1 className="text-[42px] font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[76px]">
+          SaaS MVP Development & <span className="text-primary">Web Design Agency</span> for Startups.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          I am Hunain Haider. I partner with ambitious founders and CTOs to
-          architect, build, and scale world-class software products.
+          I am Hunain Haider, Founder of WebGaebel. As a Senior Full Stack Developer, I help brands grow by delivering affordable website design for small businesses, custom Shopify store development, and high-performance SaaS MVP engineering.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <button
@@ -278,7 +277,7 @@ function AboutPreview() {
             <div className="relative aspect-square w-72 md:w-80 overflow-hidden rounded-2xl border border-border shadow-xl">
               <img
                 src="/profile.jpg"
-                alt="Hunain Haider"
+                alt="Hunain Haider - Senior Full Stack Developer & Founder of WebGaebel"
                 className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-background/90 backdrop-blur-md px-3 py-1 text-xs font-semibold text-primary shadow-lg border border-border">
