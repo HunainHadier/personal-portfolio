@@ -327,8 +327,8 @@ function About() {
                   {/* WebGaebel Experience */}
                   <div className="relative">
                     {/* Bullet marker */}
-                    <div className="absolute -left-[40px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-white ring-4 ring-card overflow-hidden">
-                      <img src="/28c622e1-62ec-460f-8572-766f2527ba23_removalai_preview.png" alt="WebGaebel Logo" className="h-full w-full object-contain" />
+                    <div className="absolute -left-[44px] top-0 flex h-10 w-10 items-center justify-center rounded-full bg-white ring-4 ring-card overflow-hidden shadow-sm border border-border/50">
+                      <img src="/28c622e1-62ec-460f-8572-766f2527ba23_removalai_preview.png" alt="WebGaebel Logo" className="h-full w-full object-contain p-1" />
                     </div>
                     
                     <div className="flex flex-wrap items-start justify-between gap-2">
@@ -369,8 +369,8 @@ function About() {
                   {/* HakamTechSol Experience */}
                   <div className="relative">
                     {/* Bullet marker */}
-                    <div className="absolute -left-[40px] top-0 flex h-8 w-8 items-center justify-center rounded-full bg-white ring-4 ring-card overflow-hidden">
-                      <img src="/images.jfif" alt="HakamTechSol Logo" className="h-full w-full object-contain" />
+                    <div className="absolute -left-[44px] top-0 flex h-10 w-10 items-center justify-center rounded-full bg-white ring-4 ring-card overflow-hidden shadow-sm border border-border/50">
+                      <img src="/images.jfif" alt="HakamTechSol Logo" className="h-full w-full object-contain p-1" />
                     </div>
                     
                     <div className="flex flex-wrap items-start justify-between gap-2">
