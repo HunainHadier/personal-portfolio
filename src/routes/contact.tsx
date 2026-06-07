@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { useState } from "react";
 import { Mail, Phone, Linkedin, ArrowLeft, Check } from "lucide-react";
+import { XIcon } from "@/components/icons/XIcon";
 import { toast } from "sonner";
+import { createContactSubmission } from "@/lib/api/booking.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -92,6 +94,7 @@ function ContactInfo() {
     { icon: Mail, label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
     { icon: Phone, label: "Phone / WhatsApp", value: PHONE, href: `https://wa.me/${WHATSAPP}` },
     { icon: Linkedin, label: "LinkedIn", value: "Hunain Haider", href: LINKEDIN },
+    { icon: XIcon, label: "X", value: "@SynapseStack", href: "https://x.com/SynapseStack" },
   ];
   return (
     <div className="space-y-3">
@@ -125,12 +128,38 @@ function ContactInfo() {
 
 function MessageForm() {
   const [sent, setSent] = useState(false);
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [submitting, setSubmitting] = useState(false);
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    toast.success("Message sent. I'll get back to you within 24 hours.");
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setSent(false), 2500);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const company = String(formData.get("company") || "").trim();
+    const message = String(formData.get("details") || "").trim();
+
+    setSubmitting(true);
+
+    try {
+      await createContactSubmission({
+        data: {
+          name,
+          email,
+          company: company || undefined,
+          message,
+        },
+      });
+
+      setSent(true);
+      toast.success("Message sent. I'll get back to you within 24 hours.");
+      form.reset();
+      setTimeout(() => setSent(false), 2500);
+    } catch (error) {
+      console.error("Contact submission error:", error);
+      toast.error("Could not save your message right now. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
   return (
     <form onSubmit={onSubmit} className="space-y-5">
@@ -151,10 +180,10 @@ function MessageForm() {
       </div>
       <button
         type="submit"
-        disabled={sent}
+        disabled={sent || submitting}
         className="w-full rounded-lg bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 disabled:opacity-70 md:w-auto"
       >
-        {sent ? "Sent ✓" : "Send Message"}
+        {submitting ? "Sending..." : sent ? "Sent ✓" : "Send Message"}
       </button>
     </form>
   );

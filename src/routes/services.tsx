@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { useMemo, useState } from "react";
+import { useBooking } from "@/components/booking/BookingContext";
 import {
   Smartphone,
   Globe,
@@ -247,6 +248,7 @@ const SERVICES: Service[] = [
 ];
 
 function Services() {
+  const { openBooking } = useBooking();
   const [active, setActive] = useState<Niche>("All Services");
 
   const filtered = useMemo(() => {
@@ -353,13 +355,13 @@ function Services() {
               Most engagements are scoped to the business — let's design the
               right one for yours.
             </p>
-            <Link
-              to="/contact"
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-lg transition-all hover:shadow-xl"
+            <button
+              onClick={() => openBooking("Consultation")}
+              className="mt-8 inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-lg transition-all hover:shadow-xl cursor-pointer"
             >
               Schedule a Strategy Session
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -369,6 +371,7 @@ function Services() {
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = service.icon;
+  const { openBooking } = useBooking();
   return (
     <article
       style={{ animationDelay: `${Math.min(index, 8) * 40}ms` }}
@@ -423,14 +426,14 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       </div>
 
       <div className="mt-auto flex gap-2 pt-5">
-        <Link
-          to="/contact"
-          className="flex-1 rounded-lg bg-gradient-to-r from-primary to-blue-500 px-3 py-2.5 text-center text-[13px] font-semibold text-primary-foreground shadow-sm transition-all hover:shadow-md"
+        <button
+          onClick={() => openBooking(service.title)}
+          className="flex-1 rounded-lg bg-gradient-to-r from-primary to-blue-500 px-3 py-2.5 text-center text-[13px] font-semibold text-primary-foreground shadow-sm transition-all hover:shadow-md cursor-pointer"
         >
           Book Service
-        </Link>
+        </button>
         <Link
-          to="/contact"
+          to="/projects"
           className="flex-1 rounded-lg border border-border bg-background px-3 py-2.5 text-center text-[13px] font-semibold text-foreground transition-all hover:border-primary/40 hover:bg-accent"
         >
           Explore

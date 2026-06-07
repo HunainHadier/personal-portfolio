@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Home, Briefcase, FolderKanban, Mail } from "lucide-react";
+import { Home, User, Briefcase, FolderKanban, Mail } from "lucide-react";
 
 const items = [
   { to: "/", label: "Home", icon: Home },
+  { to: "/about", label: "About", icon: User },
   { to: "/services", label: "Services", icon: Briefcase },
   { to: "/projects", label: "Projects", icon: FolderKanban },
   { to: "/contact", label: "Contact", icon: Mail },
@@ -11,7 +12,7 @@ const items = [
 export function MobileBottomNav() {
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-md md:hidden">
-      <div className="mx-auto grid max-w-md grid-cols-4">
+      <div className="mx-auto grid max-w-md grid-cols-5">
         {items.map((it) => {
           const Icon = it.icon;
           return (

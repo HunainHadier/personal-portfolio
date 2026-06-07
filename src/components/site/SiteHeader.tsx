@@ -1,14 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { useBooking } from "../booking/BookingContext";
 
 const nav = [
   { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
+  const { openBooking } = useBooking();
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -32,22 +35,23 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-1 md:flex">
           {nav.map((n) => (
             <Link
-              key={n.to}
+              key={n.label}
               to={n.to}
-              className="rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              hash={"hash" in n ? n.hash : undefined}
+              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-foreground" }}
-              activeOptions={{ exact: n.to === "/" }}
+              activeOptions={{ exact: n.to === "/" && !("hash" in n) }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
-        <Link
-          to="/contact"
-          className="hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow md:inline-flex"
+        <button
+          onClick={() => openBooking()}
+          className="hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow md:inline-flex cursor-pointer"
         >
           Book Consultation
-        </Link>
+        </button>
       </div>
     </header>
   );

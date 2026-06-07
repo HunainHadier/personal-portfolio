@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { ArrowRight, Check, Layers, Server, Cpu } from "lucide-react";
+import { useBooking } from "@/components/booking/BookingContext";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,6 +27,7 @@ function Index() {
       <Hero />
       <Stack />
       <ProductEngineering />
+      <AboutPreview />
       <EndToEnd />
       <Process />
       <CTA />
@@ -34,6 +36,7 @@ function Index() {
 }
 
 function Hero() {
+  const { openBooking } = useBooking();
   return (
     <section className="container-page pt-12 pb-20 md:pt-24 md:pb-28">
       <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
@@ -53,12 +56,12 @@ function Hero() {
           architect, build, and scale world-class software products.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
+          <button
+            onClick={() => openBooking("Consultation")}
+            className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md cursor-pointer"
           >
             Book a Strategy Session <ArrowRight className="h-4 w-4" />
-          </Link>
+          </button>
           <Link
             to="/services"
             className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-background px-6 py-3.5 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
@@ -236,6 +239,7 @@ function Process() {
 }
 
 function CTA() {
+  const { openBooking } = useBooking();
   return (
     <section className="bg-primary text-primary-foreground">
       <div className="container-page py-20 text-center md:py-28">
@@ -247,18 +251,76 @@ function CTA() {
           build the platform your business deserves.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition-transform hover:scale-[1.02]"
+          <button
+            onClick={() => openBooking("Consultation")}
+            className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-primary shadow-sm transition-transform hover:scale-[1.02] cursor-pointer"
           >
             Book a Consultation
-          </Link>
+          </button>
           <a
             href="mailto:hunainhaider811@gmail.com"
             className="inline-flex items-center justify-center rounded-md border border-white/40 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
           >
             Email Me
           </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutPreview() {
+  return (
+    <section className="container-page py-20 md:py-28 border-t border-border">
+      <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+        <div className="relative md:col-span-5 flex justify-center">
+          <div className="relative group">
+            <div className="relative aspect-square w-72 md:w-80 overflow-hidden rounded-2xl border border-border shadow-xl">
+              <img
+                src="/profile.jpg"
+                alt="Hunain Haider"
+                className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-background/90 backdrop-blur-md px-3 py-1 text-xs font-semibold text-primary shadow-lg border border-border">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                Verified Professional
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="md:col-span-7">
+          <div className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+            About Hunain Haider
+          </div>
+          <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground md:text-5xl">
+            Founder & <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">Senior Full Stack Developer</span>
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            I help businesses save time, get more clients, and run smoother operations through custom software, SaaS platforms, and automation systems. Based in Karachi, Pakistan, I work with startups, agencies, and enterprise clients worldwide.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {[
+              "SaaS Platform Development",
+              "Custom Business Automation",
+              "Enterprise Architecture",
+              "End-to-End Product Engineering",
+            ].map((skill) => (
+              <div key={skill} className="flex items-center gap-2.5">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <Check className="h-3 w-3" strokeWidth={3} />
+                </span>
+                <span className="text-[14.5px] font-medium text-foreground">{skill}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Link
+              to="/about"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
+            >
+              Read Full About Page <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
